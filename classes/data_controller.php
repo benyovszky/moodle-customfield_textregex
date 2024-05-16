@@ -26,6 +26,7 @@
 namespace customfield_textregex;
 
 use core_customfield\api;
+use MoodleQuickForm;
 
 /**
  * Class data
@@ -50,7 +51,7 @@ class data_controller extends \core_customfield\data_controller {
      *
      * @param \MoodleQuickForm $mform
      */
-    public function instance_form_definition(\MoodleQuickForm $mform): void {
+    public function instance_form_definition(MoodleQuickForm $mform): void {
         $field = $this->get_field();
         $type = 'text';
         $elementname = $this->get_form_element_name();

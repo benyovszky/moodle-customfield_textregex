@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['displaysize'] = 'Beviteli mező hossza';
 $string['errorconfigdisplaysize'] = 'A beviteli mező hosszának 1 és 200 között kell lennie.';
+$string['errorconfigregex'] = 'A megadott reguláris kifejezés érvénytelen.';
 $string['errorregex'] = 'A megadott érték nem felel meg a következő ellenőrzésnek: {$a}';
 $string['pluginname'] = 'Ellenőrzött rövid beviteli mező';
 $string['privacy:metadata'] = 'Az ellenőrzött rövid szöveges mező nem tárol semmilyen személyes adatot; az alaprendszer adattábláit használja.';

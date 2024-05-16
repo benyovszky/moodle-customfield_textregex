@@ -25,6 +25,8 @@
 
 namespace customfield_textregex;
 
+use MoodleQuickForm;
+
 /**
  * Class field
  *
@@ -44,7 +46,7 @@ class field_controller extends \core_customfield\field_controller {
      *
      * @param \MoodleQuickForm $mform
      */
-    public function config_form_definition(\MoodleQuickForm $mform): void {
+    public function config_form_definition(MoodleQuickForm $mform): void {
 
         $mform->addElement('header', 'header_specificsettings', get_string('specificsettings', 'customfield_textregex'));
         $mform->setExpanded('header_specificsettings', true);
@@ -52,6 +54,7 @@ class field_controller extends \core_customfield\field_controller {
         $mform->addElement('text', 'configdata[regex]', get_string('regex', 'customfield_textregex'),
             ['size' => 150]);
         $mform->setType('configdata[regex]', PARAM_TEXT);
+        $mform->addRule('configdata[regex]', null, 'required', null, 'client');
         $mform->addHelpButton('configdata[regex]', 'regex', 'customfield_textregex');
 
         $mform->addElement('text', 'configdata[defaultvalue]', get_string('defaultvalue', 'core_customfield'),
@@ -74,8 +77,11 @@ class field_controller extends \core_customfield\field_controller {
      * @return array associative array of error messages
      */
     public function config_form_validation(array $data, $files = []): array {
-        global $CFG;
         $errors = parent::config_form_validation($data, $files);
+
+        if (preg_match($data['configdata']['regex'], '') === false) {
+            $errors['configdata[regex]'] = get_string('errorconfigregex', 'customfield_textregex');
+        }
 
         $displaysize = (int)$data['configdata']['displaysize'];
         if ($displaysize < 1 || $displaysize > 200) {

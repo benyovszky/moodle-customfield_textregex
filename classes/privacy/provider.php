@@ -26,7 +26,9 @@ namespace customfield_textregex\privacy;
 
 use core_customfield\data_controller;
 use core_customfield\privacy\customfield_provider;
+use core_privacy\local\metadata\null_provider;
 use core_privacy\local\request\writer;
+use stdClass;
 
 /**
  * Privacy Subsystem for customfield_textregex implementing null_provider.
@@ -35,13 +37,13 @@ use core_privacy\local\request\writer;
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @copyright 2024 onwards Bence Molnar
  */
-class provider implements \core_privacy\local\metadata\null_provider, customfield_provider {
+class provider implements null_provider, customfield_provider {
 
     /**
      * Get the language string identifier with the component's language
      * file to explain why this plugin stores no data.
      *
-     * @return  string
+     * @return string
      */
     public static function get_reason(): string {
         return 'privacy:metadata';
@@ -50,11 +52,11 @@ class provider implements \core_privacy\local\metadata\null_provider, customfiel
     /**
      * Preprocesses data object that is going to be exported
      *
-     * @param data_controller $data
+     * @param \core_customfield\data_controller $data
      * @param \stdClass $exportdata
      * @param array $subcontext
      */
-    public static function export_customfield_data(data_controller $data, \stdClass $exportdata, array $subcontext) {
+    public static function export_customfield_data(data_controller $data, stdClass $exportdata, array $subcontext) {
         $context = $data->get_context();
         // For text fields we want to apply format_string even to raw value to avoid CSS.
         $exportdata->{$data->datafield()} = $data->export_value();

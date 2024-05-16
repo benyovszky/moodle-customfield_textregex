@@ -15,9 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'customfield_textregex', language 'en'.
+ * Coverage information for 'customfield_textregex'
  *
  * @package   customfield_textregex
+ * @category   test
  * @author    Bence Molnar <molbence@gmail.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @copyright 2024 onwards Bence Molnar
@@ -25,12 +26,19 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['displaysize'] = 'Form input size';
-$string['errorconfigdisplaysize'] = 'The form input size must be between 1 and 200 characters.';
-$string['errorconfigregex'] = 'The provided regex is not a valid regex.';
-$string['errorregex'] = 'Entered value does not match against regex: {$a}';
-$string['pluginname'] = 'Short text with regex validation';
-$string['privacy:metadata'] = 'The Short text with validation  field type plugin doesn\'t store any personal data; it uses tables defined in core.';
-$string['regex'] = 'Regular expression';
-$string['regex_help'] = 'Perl style regular expression to test the field value against. Please also include the delimiters. E.g: \"/^TEST[0-9A-F]{3}\/$_utotag/\".';
-$string['specificsettings'] = 'Short text with validation field settings';
+/**
+ * Anonymous phpunit_coverage_info returning the areas to include and exclude.
+ */
+return new class extends phpunit_coverage_info {
+    /** @var array The list of folders relative to the plugin root to include in coverage generation. */
+    protected $includelistfolders = ['classes'];
+
+    /** @var array The list of files relative to the plugin root to include in coverage generation. */
+    protected $includelistfiles = [];
+
+    /** @var array The list of folders relative to the plugin root to exclude from coverage generation. */
+    protected $excludelistfolders = [];
+
+    /** @var array The list of files relative to the plugin root to exclude from coverage generation. */
+    protected $excludelistfiles = [];
+};
