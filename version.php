@@ -28,3 +28,6 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'customfield_textregex';
 $plugin->version   = 2024051600;
 $plugin->requires  = 2024041600;
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = '1.0';
+$plugin->supported = [311, 400, 401, 402, 403, 404];
