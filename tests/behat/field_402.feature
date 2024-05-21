@@ -96,9 +96,10 @@ Feature: Managers can manage course custom fields text
     And I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
-      | Name          | Test field  |
-      | Short name    | testfield   |
-      | Default value | testdefault |
+      | Name               | Test field  |
+      | Short name         | testfield   |
+      | Regular expression | /^[a-z]+$/  |
+      | Default value      | testdefault |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
