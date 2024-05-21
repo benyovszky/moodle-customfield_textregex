@@ -1,5 +1,5 @@
 @customfield @customfield_textregex @javascript
-Feature: Managers can manage course custom fields textregex
+Feature: Managers can manage course custom fields textregex 402
   In order to have additional data on the course
   As a manager
   I need to create, edit, remove and sort custom fields
@@ -12,7 +12,7 @@ Feature: Managers can manage course custom fields textregex
     And I log in as "admin"
     And I navigate to "Courses > Course custom fields" in site administration
 
-  Scenario: Create a custom course text field
+  Scenario: Create a custom course textregex field 402
     When I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
@@ -23,7 +23,7 @@ Feature: Managers can manage course custom fields textregex
     Then I should see "Test field"
     And I log out
 
-  Scenario: Edit a custom course text field
+  Scenario: Edit a custom course textregex field 402
     When I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
@@ -40,7 +40,7 @@ Feature: Managers can manage course custom fields textregex
     And I press "Get these logs"
     And I log out
 
-  Scenario: Delete a custom course text field
+  Scenario: Delete a custom course textregex field 402
     When I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
@@ -55,7 +55,7 @@ Feature: Managers can manage course custom fields textregex
     Then I should not see "Test field"
     And I log out
 
-  Scenario: A text field with a regex must validate it on course edit form
+  Scenario: A textregex field must validate it on course edit form 402
     Given the following "users" exist:
       | username | firstname | lastname  | email                |
       | teacher1 | Teacher   | Example 1 | teacher1@example.com |
@@ -82,7 +82,7 @@ Feature: Managers can manage course custom fields textregex
     And I press "Save and display"
     Then I should see "Entered value does not match against regex: /^[a-z]+$/"
 
-  Scenario: A text field with a default value must be shown on listing but allow empty values that will not be shown
+  Scenario: A textregex field with a default value must be shown on listing but allow empty values that will not be shown 402
     Given the following "users" exist:
       | username | firstname | lastname  | email                |
       | teacher1 | Teacher   | Example 1 | teacher1@example.com |
