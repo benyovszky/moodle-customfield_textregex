@@ -1,5 +1,5 @@
-@customfield @customfield_text @javascript
-Feature: Managers can manage course custom fields text
+@customfield @customfield_textregex @javascript
+Feature: Managers can manage course custom fields textregex
   In order to have additional data on the course
   As a manager
   I need to create, edit, remove and sort custom fields
@@ -18,7 +18,7 @@ Feature: Managers can manage course custom fields text
     And I set the following fields to these values:
       | Name               | Test field |
       | Short name         | testfield  |
-	  | Regular expression | /^[a-z]+$/ |
+      | Regular expression | /^[a-z]+$/ |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     Then I should see "Test field"
     And I log out
@@ -29,7 +29,7 @@ Feature: Managers can manage course custom fields text
     And I set the following fields to these values:
       | Name               | Test field |
       | Short name         | testfield  |
-	  | Regular expression | /^[a-z]+$/ |
+      | Regular expression | /^[a-z]+$/ |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I click on "Edit" "link" in the "Test field" "table_row"
     And I set the following fields to these values:
@@ -46,7 +46,7 @@ Feature: Managers can manage course custom fields text
     And I set the following fields to these values:
       | Name               | Test field |
       | Short name         | testfield  |
-	  | Regular expression | /^[a-z]+$/ |
+      | Regular expression | /^[a-z]+$/ |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I click on "Delete" "link" in the "Test field" "table_row"
     And I click on "Yes" "button" in the "Confirm" "dialogue"
