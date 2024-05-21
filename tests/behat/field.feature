@@ -5,7 +5,8 @@ Feature: Managers can manage course custom fields textregex
   I need to create, edit, remove and sort custom fields
 
   Background:
-    Given the following "custom field categories" exist:
+    Given the site is running Moodle version 4.3 or higher 
+    And the following "custom field categories" exist:
       | name              | component   | area   | itemid |
       | Category for test | core_course | course | 0      |
     And I log in as "admin"
