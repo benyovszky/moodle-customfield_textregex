@@ -80,7 +80,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | Test field | 1234 |
     And I press "Save and display"
-    Then I should see "Entered value does not match against regex: /^[a-z]+$/"
+    Then I should see "Entered value does not match against regex: /^[a-z]*$/"
 
   Scenario: A textregex field with a default value must be shown on listing but allow empty values that will not be shown
     Given the following "users" exist:
