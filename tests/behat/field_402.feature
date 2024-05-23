@@ -16,9 +16,9 @@ Feature: Managers can manage course custom fields textregex 402
     When I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
-      | Name               | Test field      |
-      | Short name         | testfield       |
-      | Regular expression | /^(?:[a-z]+)?$/ |
+      | Name               | Test field |
+      | Short name         | testfield  |
+      | Regular expression | /^[a-z]*$/ |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     Then I should see "Test field"
     And I log out
@@ -27,9 +27,9 @@ Feature: Managers can manage course custom fields textregex 402
     When I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
-      | Name               | Test field      |
-      | Short name         | testfield       |
-      | Regular expression | /^(?:[a-z]+)?$/ |
+      | Name               | Test field |
+      | Short name         | testfield  |
+      | Regular expression | /^[a-z]*$/ |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I click on "Edit" "link" in the "Test field" "table_row"
     And I set the following fields to these values:
@@ -44,9 +44,9 @@ Feature: Managers can manage course custom fields textregex 402
     When I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
-      | Name               | Test field      |
-      | Short name         | testfield       |
-      | Regular expression | /^(?:[a-z]+)?$/ |
+      | Name               | Test field |
+      | Short name         | testfield  |
+      | Regular expression | /^[a-z]*$/ |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I click on "Delete" "link" in the "Test field" "table_row"
     And I click on "Yes" "button" in the "Confirm" "dialogue"
@@ -69,9 +69,9 @@ Feature: Managers can manage course custom fields textregex 402
     And I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
-      | Name               | Test field      |
-      | Short name         | testfield       |
-      | Regular expression | /^(?:[a-z]+)?$/ |
+      | Name               | Test field |
+      | Short name         | testfield  |
+      | Regular expression | /^[a-z]*$/ |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
@@ -96,10 +96,10 @@ Feature: Managers can manage course custom fields textregex 402
     And I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
-      | Name               | Test field       |
-      | Short name         | testfield        |
-      | Regular expression | /^(?:[a-z]+)?$/  |
-      | Default value      | testdefault      |
+      | Name               | Test field  |
+      | Short name         | testfield   |
+      | Regular expression | /^[a-z]*$/  |
+      | Default value      | testdefault |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
