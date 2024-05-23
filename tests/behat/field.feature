@@ -24,7 +24,7 @@ Feature: Managers can manage course custom fields textregex
     And I log out
 
   Scenario: Create a custom course textregex field to 4.2
-    Given the site is running Moodle version 4.2 or lower
+    Given the site is running Moodle version 4.3 or lower
     And I navigate to "Courses > Course custom fields" in site administration
     When I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
@@ -56,7 +56,7 @@ Feature: Managers can manage course custom fields textregex
     And I log out
 
   Scenario: Edit a custom course textregex field to 4.2
-    Given the site is running Moodle version 4.2 or lower
+    Given the site is running Moodle version 4.3 or lower
     And I navigate to "Courses > Course custom fields" in site administration
     When I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
@@ -92,7 +92,7 @@ Feature: Managers can manage course custom fields textregex
     And I log out
 
   Scenario: Delete a custom course textregex field to 4.2
-    Given the site is running Moodle version 4.2 or lower
+    Given the site is running Moodle version 4.3 or lower
     And I navigate to "Courses > Course custom fields" in site administration
     When I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
@@ -139,7 +139,7 @@ Feature: Managers can manage course custom fields textregex
 
   Scenario: A textregex field must validate it on course edit form from 4.0 to 4.2
     Given the site is running Moodle version 4.0 or higher
-    And the site is running Moodle version 4.2 or lower
+    And the site is running Moodle version 4.3 or lower
     And I navigate to "Courses > Course custom fields" in site administration
     And the following "users" exist:
       | username | firstname | lastname  | email                |
@@ -168,7 +168,7 @@ Feature: Managers can manage course custom fields textregex
     Then I should see "Entered value does not match against regex: /^[a-z]*$/"
 
   Scenario: A textregex field must validate it on course edit form 3.11
-    Given the site is running Moodle version 3.11 or lower
+    Given the site is running Moodle version 4.0 or lower
     And I navigate to "Courses > Course custom fields" in site administration
     And the following "users" exist:
       | username | firstname | lastname  | email                |
@@ -232,7 +232,7 @@ Feature: Managers can manage course custom fields textregex
 
   Scenario: A textregex field with a default value must be shown on listing but allow empty values that will not be shown from 4.0 to 4.2
     Given the site is running Moodle version 4.0 or higher
-    And the site is running Moodle version 4.2 or lower
+    And the site is running Moodle version 4.3 or lower
     And I navigate to "Courses > Course custom fields" in site administration
     And the following "users" exist:
       | username | firstname | lastname  | email                |
@@ -243,7 +243,7 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    And I navigate to "Courses > Default settings > Course custom fields" in site administration
+    And I navigate to "Courses > Course custom fields" in site administration
     And I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
@@ -266,7 +266,7 @@ Feature: Managers can manage course custom fields textregex
     And I should not see "Test field"
 
   Scenario: A textregex field with a default value must be shown on listing but allow empty values that will not be shown 3.11
-    Given the site is running Moodle version 3.11 or lower
+    Given the site is running Moodle version 4.0 or lower
     And I navigate to "Courses > Course custom fields" in site administration
     And the following "users" exist:
       | username | firstname | lastname  | email                |
@@ -277,7 +277,7 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    And I navigate to "Courses > Default settings > Course custom fields" in site administration
+    And I navigate to "Courses > Course custom fields" in site administration
     And I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
