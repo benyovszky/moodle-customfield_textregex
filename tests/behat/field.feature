@@ -298,4 +298,3 @@ Feature: Managers can manage course custom fields textregex
     And I press "Save and display"
     And I am on site homepage
     And I should not see "Test field"
-    
