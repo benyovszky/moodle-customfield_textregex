@@ -18,7 +18,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | Name               | Test field |
       | Short name         | testfield  |
-      | Regular expression | /^[a-z]+$/ |
+      | Regular expression | /^[a-z]*$/ |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     Then I should see "Test field"
     And I log out
@@ -29,7 +29,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | Name               | Test field |
       | Short name         | testfield  |
-      | Regular expression | /^[a-z]+$/ |
+      | Regular expression | /^[a-z]*$/ |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I click on "Edit" "link" in the "Test field" "table_row"
     And I set the following fields to these values:
@@ -46,7 +46,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | Name               | Test field |
       | Short name         | testfield  |
-      | Regular expression | /^[a-z]+$/ |
+      | Regular expression | /^[a-z]*$/ |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I click on "Delete" "link" in the "Test field" "table_row"
     And I click on "Yes" "button" in the "Confirm" "dialogue"
@@ -71,7 +71,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | Name               | Test field |
       | Short name         | testfield  |
-      | Regular expression | /^[a-z]+$/ |
+      | Regular expression | /^[a-z]*$/ |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
@@ -98,7 +98,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | Name               | Test field  |
       | Short name         | testfield   |
-      | Regular expression | /^[a-z]+$/  |
+      | Regular expression | /^[a-z]*$/  |
       | Default value      | testdefault |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
