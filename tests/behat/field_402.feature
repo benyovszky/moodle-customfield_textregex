@@ -6,7 +6,7 @@ Feature: Managers can manage course custom fields textregex 402
 
   Background:
     Given the site is running Moodle version 4.2 or lower
-    And the site is running Moodle version 4.0 or higher
+    But the site is running Moodle version 4.0 or higher
     And the following "custom field categories" exist:
       | name              | component   | area   | itemid |
       | Category for test | core_course | course | 0      |
