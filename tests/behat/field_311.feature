@@ -5,8 +5,7 @@ Feature: Managers can manage course custom fields textregex 402
   I need to create, edit, remove and sort custom fields
 
   Background:
-    Given the site is running Moodle version 4.2 or lower
-    And the site is running Moodle version 4.0 or higher
+    Given the site is running Moodle version 3.11 or lower
     And the following "custom field categories" exist:
       | name              | component   | area   | itemid |
       | Category for test | core_course | course | 0      |
@@ -77,7 +76,7 @@ Feature: Managers can manage course custom fields textregex 402
     And I log out
     Then I log in as "teacher1"
     And I am on "Course 1" course homepage
-    And I navigate to "Settings" in current page administration
+    And I navigate to "Edit settings" in current page administration
     And I set the following fields to these values:
       | Test field | 1234 |
     And I press "Save and display"
@@ -107,7 +106,7 @@ Feature: Managers can manage course custom fields textregex 402
     When I am on site homepage
     Then I should see "Test field: testdefault"
     When I am on "Course 1" course homepage
-    And I navigate to "Settings" in current page administration
+    And I navigate to "Edit settings" in current page administration
     Then the "value" attribute of "#id_customfield_testfield" "css_element" should contain "testdefault"
     When I set the following fields to these values:
       | Test field |  |
