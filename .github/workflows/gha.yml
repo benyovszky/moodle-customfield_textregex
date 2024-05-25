@@ -92,7 +92,7 @@ jobs:
           ini-values: max_input_vars=5000
           # If you are not using code coverage, keep "none". Otherwise, use "pcov" (Moodle 3.10 and up) or "xdebug".
           # If you try to use code coverage with "none", it will fallback to phpdbg (which has known problems).
-          coverage: pcov
+          coverage: none
 
       - name: Initialise moodle-plugin-ci
         run: |
@@ -145,9 +145,7 @@ jobs:
 
       - name: PHPUnit tests
         if: ${{ !cancelled() }}
-        run: |
-          moodle-plugin-ci phpunit --fail-on-warning --coverage-text
-          cat coverage.xml
+        run: moodle-plugin-ci phpunit --fail-on-warning
 
       - name: Behat features
         id: behat
