@@ -32,5 +32,5 @@ $string['errorregex'] = 'A megadott érték nem felel meg a következő ellenőr
 $string['pluginname'] = 'Ellenőrzött rövid beviteli mező';
 $string['privacy:metadata'] = 'Az ellenőrzött rövid szöveges mező nem tárol semmilyen személyes adatot; az alaprendszer adattábláit használja.';
 $string['regex'] = 'Reguláris kifejezés';
-$string['regex_help'] = 'A beviteli mező ellenőrzésére szolgáló Perl típusu reguláris kifejezés. Az elhatároló (delimeter) karakternek szerepelnie kell az elején és a végén. Pl: \"/^TEST[0-9A-F]{3}\/$_utotag/\".';
+$string['regex_help'] = 'A beviteli mező ellenőrzésére szolgáló Perl típusu reguláris kifejezés. Az elhatároló (delimeter) karakternek szerepelnie kell az elején és a végén. Pl: \"/^TEST[0-9A-F]{3}\/\$_utotag/\".';
 $string['specificsettings'] = 'Ellenőrzött rövid szöveges beviteli mező beállításai';
