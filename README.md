@@ -1,5 +1,5 @@
 # Moodle Shorttext customfield with regex validation
-![Build Status](https://github.com/benyovszky/moodle-customfield_textregex/actions/workflows/gha.yml/badge.svg?branch=main)
+![Build Status](https://github.com/benyovszky/moodle-customfield_textregex/actions/workflows/gha.yml/badge.svg?branch=main) [![Releasing in the Plugins directory](https://github.com/benyovszky/moodle-customfield_textregex/actions/workflows/moodle-release.yml/badge.svg)](https://github.com/benyovszky/moodle-customfield_textregex/actions/workflows/moodle-release.yml)
 
 Textregex customfield plugin allows to have a short text input field with regex validation. Enabling to ensure a valid format of the field data.
 
