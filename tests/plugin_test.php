@@ -146,6 +146,13 @@ final class plugin_test extends \advanced_testcase {
             ['handler' => $handler, 'instance' => $this->courses[1]]);
         $this->assertFalse($form->is_validated());
 
+        // Now with required but invalid field.
+        $submitdata['customfield_myfield2'] = '123456';
+        core_customfield_test_instance_form::mock_submit($submitdata, []);
+        $form = new core_customfield_test_instance_form('POST',
+            ['handler' => $handler, 'instance' => $this->courses[1]]);
+        $this->assertFalse($form->is_validated());
+
         // Now with required field.
         $submitdata['customfield_myfield2'] = 'sometext';
         core_customfield_test_instance_form::mock_submit($submitdata, []);
