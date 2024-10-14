@@ -57,6 +57,7 @@ final class plugin_test extends \advanced_testcase {
      * Tests set up.
      */
     public function setUp(): void {
+        parent::setUp();
         $this->resetAfterTest();
 
         $this->cfcat = $this->get_generator()->create_category();
@@ -94,7 +95,7 @@ final class plugin_test extends \advanced_testcase {
 
     /**
      * Test for initialising field and data controllers
-     * @covers \customfield\field_controller::create
+     * @covers \core_customfield\field_controller::create
      */
     public function test_initialise(): void {
         $f = field_controller::create($this->cfields[1]->get('id'));
