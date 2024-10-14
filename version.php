@@ -26,8 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'customfield_textregex';
-$plugin->version   = 2024053100;
+$plugin->version   = 2024101400;
 $plugin->requires  = 2021051718;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.0.3';
-$plugin->supported = [311, 404];
+$plugin->release = '1.0.4';
+$plugin->supported = [311, 405];
