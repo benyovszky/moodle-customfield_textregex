@@ -102,9 +102,9 @@ class data_controller extends \core_customfield\data_controller {
     /**
      * Returns value in a human-readable format
      *
-     * @return string|null value or null if empty
+     * @return null|string The value or null if empty
      */
-    public function export_value(): null|string {
+    public function export_value(): ?string {
         $value = parent::export_value();
         $regex = $this->get_field()->get_configdata_property('regex');
         if (is_null($value) || !preg_match($regex, $value)) {
