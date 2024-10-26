@@ -25,7 +25,7 @@
 
 namespace customfield_textregex;
 
-use core_customfield\api;
+use coding_exception;
 use MoodleQuickForm;
 
 /**
@@ -49,7 +49,8 @@ class data_controller extends \core_customfield\data_controller {
     /**
      * Add fields for editing a text field.
      *
-     * @param \MoodleQuickForm $mform
+     * @param MoodleQuickForm $mform
+     * @throws coding_exception
      */
     public function instance_form_definition(MoodleQuickForm $mform): void {
         $field = $this->get_field();
@@ -75,6 +76,7 @@ class data_controller extends \core_customfield\data_controller {
      * @param array $data
      * @param array $files
      * @return array
+     * @throws coding_exception
      */
     public function instance_form_validation(array $data, array $files): array {
 
@@ -91,18 +93,18 @@ class data_controller extends \core_customfield\data_controller {
     /**
      * Returns the default value as it would be stored in the database (not in human-readable format).
      *
-     * @return mixed
+     * @return string
      */
-    public function get_default_value() {
+    public function get_default_value(): string {
         return $this->get_field()->get_configdata_property('defaultvalue');
     }
 
     /**
      * Returns value in a human-readable format
      *
-     * @return mixed|null value or null if empty
+     * @return string|null value or null if empty
      */
-    public function export_value() {
+    public function export_value(): null|string {
         $value = parent::export_value();
         $regex = $this->get_field()->get_configdata_property('regex');
         if (is_null($value) || !preg_match($regex, $value)) {

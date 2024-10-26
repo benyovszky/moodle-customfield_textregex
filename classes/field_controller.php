@@ -25,6 +25,7 @@
 
 namespace customfield_textregex;
 
+use coding_exception;
 use MoodleQuickForm;
 
 /**
@@ -44,12 +45,13 @@ class field_controller extends \core_customfield\field_controller {
     /**
      * Add fields for editing a text field.
      *
-     * @param \MoodleQuickForm $mform
+     * @param MoodleQuickForm $mform
+     * @throws coding_exception
      */
     public function config_form_definition(MoodleQuickForm $mform): void {
 
         $mform->addElement('header', 'header_specificsettings', get_string('specificsettings', 'customfield_textregex'));
-        $mform->setExpanded('header_specificsettings', true);
+        $mform->setExpanded('header_specificsettings');
 
         $mform->addElement('text', 'configdata[regex]', get_string('regex', 'customfield_textregex'),
             ['size' => 150]);
@@ -75,6 +77,7 @@ class field_controller extends \core_customfield\field_controller {
      * @param array $data from the add/edit profile field form
      * @param array $files
      * @return array associative array of error messages
+     * @throws coding_exception
      */
     public function config_form_validation(array $data, $files = []): array {
         $errors = parent::config_form_validation($data, $files);
@@ -103,8 +106,10 @@ class field_controller extends \core_customfield\field_controller {
     /**
      * If this field supports course grouping, then this function needs overriding to
      * return the formatted values for this.
+     *
      * @param array $values the used values that need formatting
      * @return array
+     * @throws coding_exception
      */
     public function course_grouping_format_values($values): array {
         $ret = [];
