@@ -27,14 +27,12 @@ namespace customfield_textregex;
 
 use advanced_testcase;
 use coding_exception;
-use component_generator_base;
 use core_customfield_generator;
 use core_customfield_test_instance_form;
 use core_customfield\category_controller;
 use core_customfield\data_controller;
 use core_customfield\field_controller;
 use core_customfield\field_config_form;
-use default_block_generator;
 use stdClass;
 
 /**
@@ -94,9 +92,9 @@ final class plugin_test extends advanced_testcase {
     /**
      * Get generator
      *
-     * @return component_generator_base|default_block_generator
+     * @return core_customfield_generator
      */
-    protected function get_generator(): component_generator_base|default_block_generator {
+    protected function get_generator(): core_customfield_generator {
         return $this->getDataGenerator()->get_plugin_generator('core_customfield');
     }
 
