@@ -32,5 +32,5 @@ $string['errorregex'] = 'Entered value does not match against regex: {$a}';
 $string['pluginname'] = 'Short text with regex validation';
 $string['privacy:metadata'] = 'The Short text with validation  field type plugin doesn\'t store any personal data; it uses tables defined in core.';
 $string['regex'] = 'Regular expression';
-$string['regex_help'] = 'Perl style regular expression to test the field value against. The regex should align with the \'required\' setting, if it is not required, reges has to allow empty field as well. And also take a look at <a href="/admin/search.php?query=strictformsrequired">Strictness setting</a>. Please also include the delimiters. E.g: \"/^TEST[0-9A-F]{3}\/\$_postfix/\".';
+$string['regex_help'] = 'Perl style regular expression to test the field value against. The regex should align with the \'required\' setting, if it is not required, regex has to allow empty field as well. And also take a look at <a href="/admin/search.php?query=strictformsrequired">Strictness setting</a>. Please also include the delimiters. E.g: \"/^TEST[0-9A-F]{3}\/\$_postfix/\".';
 $string['specificsettings'] = 'Short text with validation field settings';
