@@ -38,8 +38,9 @@ use stdClass;
  * Functional test for 'customfield_textregex'
  *
  * @package    customfield_textregex
- * @copyright  2019 Marina Glancy
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @author    Bence Molnar <molbence@gmail.com>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright 2024 onwards Bence Molnar
  */
 final class plugin_test extends advanced_testcase {
 
