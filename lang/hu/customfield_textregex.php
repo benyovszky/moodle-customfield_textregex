@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['displaysize'] = 'Beviteli mező hossza';
+$string['errorconfigdefault'] = 'A megadott alapérték nem felel meg a reguláris kifejezésnek.';
 $string['errorconfigdisplaysize'] = 'A beviteli mező hosszának 1 és 200 között kell lennie.';
 $string['errorconfigregex'] = 'A megadott reguláris kifejezés érvénytelen.';
 $string['errorregex'] = 'A megadott érték nem felel meg a következő ellenőrzésnek: {$a}';
