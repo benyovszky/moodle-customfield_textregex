@@ -53,8 +53,8 @@ class provider implements null_provider, customfield_provider {
     /**
      * Preprocesses data object that is going to be exported
      *
-     * @param \core_customfield\data_controller $data
-     * @param \stdClass $exportdata
+     * @param data_controller $data
+     * @param stdClass $exportdata
      * @param array $subcontext
      */
     public static function export_customfield_data(data_controller $data, stdClass $exportdata, array $subcontext) {

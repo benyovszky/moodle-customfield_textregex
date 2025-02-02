@@ -26,7 +26,6 @@
 namespace customfield_textregex;
 
 use advanced_testcase;
-use coding_exception;
 use core_customfield_generator;
 use core_customfield_test_instance_form;
 use core_customfield\category_controller;
@@ -59,7 +58,7 @@ final class plugin_test extends advanced_testcase {
     /**
      * Tests set up.
      *
-     * @throws coding_exception
+     * @throws \coding_exception
      */
     public function setUp(): void {
         parent::setUp();
@@ -102,6 +101,7 @@ final class plugin_test extends advanced_testcase {
      * Test for initialising field and data controllers
      *
      * @covers \core_customfield\field_controller::create
+     * @throws \coding_exception|\moodle_exception
      */
     public function test_initialise(): void {
         $f = field_controller::create($this->cfields[1]->get('id'));
@@ -140,7 +140,7 @@ final class plugin_test extends advanced_testcase {
      * Test for instance form functions
      *
      * @coversNothing
-     * @throws coding_exception
+     * @throws \coding_exception
      */
     public function test_instance_form(): void {
         global $CFG;
@@ -178,6 +178,7 @@ final class plugin_test extends advanced_testcase {
     /**
      * Test for data_controller::get_value and export_value
      * @coversNothing
+     * @throws \coding_exception|\moodle_exception
      */
     public function test_get_export_value(): void {
         $this->assertEquals('valuea', $this->cfdata[1]->get_value());
