@@ -84,7 +84,7 @@ class field_controller extends \core_customfield\field_controller {
 
         if (preg_match($data['configdata']['regex'], '') === false) {
             $errors['configdata[regex]'] = get_string('errorconfigregex', 'customfield_textregex');
-        } else if (!preg_match($data['configdata']['regex'], $data['configdata']['defaultvalue'])) {
+        } else if (!empty($data['configdata']['defaultvalue']) && !preg_match($data['configdata']['regex'], $data['configdata']['defaultvalue'])) {
             $errors['configdata[defaultvalue]'] = get_string('errorconfigdefault', 'customfield_textregex');
         }
 
