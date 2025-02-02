@@ -26,6 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['displaysize'] = 'Form input size';
+$string['errorconfigdefault'] = 'The provided default value is not matching the regex.';
 $string['errorconfigdisplaysize'] = 'The form input size must be between 1 and 200 characters.';
 $string['errorconfigregex'] = 'The provided regex is not a valid regex.';
 $string['errorregex'] = 'Entered value does not match against regex: {$a}';
