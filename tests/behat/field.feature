@@ -91,6 +91,39 @@ Feature: Managers can manage course custom fields textregex
     Then I should not see "Test field"
     And I log out
 
+  Scenario: A text field with a link setting must show link on course listing form from 4.3
+    Given the site is running Moodle version 4.3 or higher
+    And I navigate to "Courses > Default settings > Course custom fields" in site administration
+    And the following "users" exist:
+      | username | firstname | lastname  | email                |
+      | teacher1 | Teacher   | Example 1 | teacher1@example.com |
+    And the following "courses" exist:
+      | fullname | shortname | format |
+      | Course 1 | C1        | topics |
+    And the following "course enrolments" exist:
+      | user     | course | role           |
+      | teacher1 | C1     | editingteacher |
+    And I navigate to "Courses > Default settings > Course custom fields" in site administration
+    And I click on "Add a new custom field" "link"
+    And I click on "Short text with regex validation" "link"
+    And I set the following fields to these values:
+      | Name               | See more on website       |
+      | Short name         | testfield                 |
+      | Visible to         | Everyone                  |
+      | Link               | https://www.moodle.org/$$ |
+      | Regular expression | /^[a-z0-9\/\?=]*$/                |
+    And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
+    And I log out
+    Then I log in as "teacher1"
+    And I am on "Course 1" course homepage
+    And I navigate to "Settings" in current page administration
+    And I set the following fields to these values:
+      | See more on website | course/view.php?id=35 |
+    And I press "Save and display"
+    And I am on site homepage
+    Then I should see "course/view.php?id=35" in the ".customfields-container .customfield_testfield .customfieldvalue a" "css_element"
+    Then I should see "See more on website" in the ".customfields-container .customfield_testfield .customfieldname" "css_element"
+
   Scenario: Delete a custom course textregex field to 4.2
     Given the site is running Moodle version 4.2.99 or lower
     And I navigate to "Courses > Course custom fields" in site administration
