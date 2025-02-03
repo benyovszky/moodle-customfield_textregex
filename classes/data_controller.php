@@ -27,6 +27,7 @@ namespace customfield_textregex;
 
 use coding_exception;
 use MoodleQuickForm;
+use html_writer;
 
 /**
  * Class data
