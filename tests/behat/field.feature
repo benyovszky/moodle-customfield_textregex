@@ -105,14 +105,14 @@ Feature: Managers can manage course custom fields textregex
       | teacher1 | C1     | editingteacher |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add a new custom field" "link"
-    And I click on "Short text" "link"
+    And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
       | Name               | See more on website       |
       | Short name         | testfield                 |
       | Visible to         | Everyone                  |
       | Link               | https://www.moodle.org/$$ |
       | Regular expression | /^[a-z0-9\/\?=]*$/                |
-    And I click on "Save changes" "button" in the "Adding a new Short text" "dialogue"
+    And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
     And I am on "Course 1" course homepage
