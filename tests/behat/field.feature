@@ -121,8 +121,8 @@ Feature: Managers can manage course custom fields textregex
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
     And I am on site homepage
-    Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
-    Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
+    Then I should see "course/view.php?id=35" in the ".customfields-container .customfield_testfield .customfieldvalue a" "css_element"
+    Then I should see "See more on website" in the ".customfields-container .customfield_testfield .customfieldname" "css_element"
 
   Scenario: Delete a custom course textregex field to 4.2
     Given the site is running Moodle version 4.2.99 or lower
