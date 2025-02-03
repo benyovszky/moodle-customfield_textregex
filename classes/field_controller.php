@@ -69,6 +69,21 @@ class field_controller extends \core_customfield\field_controller {
             $mform->setDefault('configdata[displaysize]', 50);
         }
         $mform->addRule('configdata[displaysize]', null, 'numeric', null, 'client');
+
+        $mform->addElement('text', 'configdata[link]', get_string('islink', 'customfield_textregex'), ['size' => 50]);
+        $mform->setType('configdata[link]', PARAM_RAW_TRIMMED);
+        $mform->addHelpButton('configdata[link]', 'islink', 'customfield_textregex');
+
+        $linkstargetoptions = [
+            ''       => get_string('none', 'customfield_textregex'),
+            '_blank' => get_string('newwindow', 'customfield_textregex'),
+            '_self'  => get_string('sameframe', 'customfield_textregex'),
+            '_top'   => get_string('samewindow', 'customfield_textregex'),
+        ];
+        $mform->addElement('select', 'configdata[linktarget]', get_string('linktarget', 'customfield_textregex'),
+            $linkstargetoptions);
+
+        $mform->disabledIf('configdata[linktarget]', 'configdata[link]', 'eq', '');
     }
 
     /**
@@ -94,6 +109,19 @@ class field_controller extends \core_customfield\field_controller {
         $displaysize = (int)$data['configdata']['displaysize'];
         if ($displaysize < 1 || $displaysize > 200) {
             $errors['configdata[displaysize]'] = get_string('errorconfigdisplaysize', 'customfield_textregex');
+        }
+
+        if (isset($data['configdata']['link'])) {
+            $link = $data['configdata']['link'];
+            if (strlen($link)) {
+                require_once($CFG->dirroot . '/lib/validateurlsyntax.php');
+                if (strpos($link, '$$') === false) {
+                    $errors['configdata[link]'] = get_string('errorconfiglinkplaceholder', 'customfield_textregex');
+                } else if (!validateUrlSyntax(str_replace('$$', 'XYZ', $link), 's+H?S?F-E-u-P-a?I?p?f?q?r?')) {
+                    // This validation is more strict than PARAM_URL - it requires the protocol and it must be either http or https.
+                    $errors['configdata[link]'] = get_string('errorconfiglinksyntax', 'customfield_textregex');
+                }
+            }
         }
 
         return $errors;

@@ -111,6 +111,14 @@ class data_controller extends \core_customfield\data_controller {
             return null;
         }
 
+        $link = $this->get_field()->get_configdata_property('link');
+        if ($link) {
+            $linktarget = $this->get_field()->get_configdata_property('linktarget');
+            $url = str_replace('$$', urlencode($this->get_value()), $link);
+            $attributes = $linktarget ? ['target' => $linktarget] : [];
+            $value = html_writer::link($url, $value, $attributes);
+        }
+
         return $value;
     }
 }

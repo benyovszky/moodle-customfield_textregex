@@ -76,6 +76,9 @@ final class plugin_test extends advanced_testcase {
         $this->cfields[3] = $this->get_generator()->create_field(
             ['categoryid' => $this->cfcat->get('id'), 'shortname' => 'myfield3', 'type' => 'textregex',
                 'configdata' => ['defaultvalue' => 'defvalue', 'displaysize' => 50, 'regex' => '/^[a-z]+$/']]);
+        $this->cfields[4] = $this->get_generator()->create_field(
+            ['categoryid' => $this->cfcat->get('id'), 'shortname' => 'myfield4', 'type' => 'text',
+                'configdata' => ['link' => 'https://twitter.com/$$', 'displaysize' => 50, 'regex' => '/^[a-z]+$/']]);
 
         $this->courses[1] = $this->getDataGenerator()->create_course();
         $this->courses[2] = $this->getDataGenerator()->create_course();
@@ -189,6 +192,11 @@ final class plugin_test extends advanced_testcase {
         $d = data_controller::create(0, null, $this->cfields[3]);
         $this->assertEquals('defvalue', $d->get_value());
         $this->assertEquals('defvalue', $d->export_value());
+
+        // Field with a link.
+        $d = $this->get_generator()->add_instance_data($this->cfields[4], $this->courses[1]->id, 'mynickname');
+        $this->assertEquals('mynickname', $d->get_value());
+        $this->assertEquals('<a href="https://twitter.com/mynickname">mynickname</a>', $d->export_value());
     }
 
     /**
