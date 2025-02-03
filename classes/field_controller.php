@@ -95,6 +95,8 @@ class field_controller extends \core_customfield\field_controller {
      * @throws coding_exception
      */
     public function config_form_validation(array $data, $files = []): array {
+        global $CFG;
+
         $errors = parent::config_form_validation($data, $files);
 
         if (preg_match($data['configdata']['regex'], '') === false) {
