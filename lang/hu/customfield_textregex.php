@@ -38,10 +38,10 @@ $string['islink_help'] = 'A szöveg hivatkozássá alakításához adja meg a $$
 $string['linktarget'] = 'Hivatkozás célpontja';
 $string['newwindow'] = 'Új ablak';
 $string['none'] = 'Nincs';
-$string['pluginname'] = 'Ellenőrzött rövid beviteli mező';
+$string['pluginname'] = 'Ellenőrzött rövid szöveges mező';
 $string['privacy:metadata'] = 'Az ellenőrzött rövid szöveges mező nem tárol semmilyen személyes adatot; az alaprendszer adattábláit használja.';
 $string['regex'] = 'Reguláris kifejezés';
 $string['regex_help'] = 'A beviteli mező ellenőrzésére szolgáló Perl típusu reguláris kifejezés. A kifejezés legyen összhangban a \'Kötelező\' beállítással, ha a mező nem kötelező, akkor a kifejezés is engedje meg az üres értéket. Érdemes egy pillantást vetni az üres mező ellenőrzés <a href="/admin/search.php?query=strictformsrequired">szigorúságát befolyásoló globális beállítsra</a>. Az elhatároló (delimeter) karakternek szerepelnie kell az elején és a végén. Pl: \"/^TEST[0-9A-F]{3}\/\$_utotag/\".';
 $string['sameframe'] = 'Ugyanaz a keret';
 $string['samewindow'] = 'Ugyanaz az ablak';
-$string['specificsettings'] = 'Ellenőrzött rövid szöveges beviteli mező beállításai';
+$string['specificsettings'] = 'Ellenőrzött rövid szöveges mező beállításai';
