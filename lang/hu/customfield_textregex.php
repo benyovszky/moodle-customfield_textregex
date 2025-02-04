@@ -18,6 +18,7 @@
  * Strings for component 'customfield_textregex', language 'hu'.
  *
  * @package   customfield_textregex
+ * @category  string
  * @author    Bence Molnar <molbence@gmail.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @copyright 2024 onwards Bence Molnar
