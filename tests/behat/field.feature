@@ -91,6 +91,23 @@ Feature: Managers can manage course custom fields textregex
     Then I should not see "Test field"
     And I log out
 
+  Scenario: Delete a custom course textregex field to 4.2
+    Given the site is running Moodle version 4.2.99 or lower
+    And I navigate to "Courses > Course custom fields" in site administration
+    When I click on "Add a new custom field" "link"
+    And I click on "Short text with regex validation" "link"
+    And I set the following fields to these values:
+      | Name               | Test field |
+      | Short name         | testfield  |
+      | Regular expression | /^[a-z]*$/ |
+    And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
+    And I click on "Delete" "link" in the "Test field" "table_row"
+    And I click on "Yes" "button" in the "Confirm" "dialogue"
+    And I wait until the page is ready
+    And I wait until "Test field" "text" does not exist
+    Then I should not see "Test field"
+    And I log out
+
   Scenario: A text field with a link setting must show link on course listing form from 4.3
     Given the site is running Moodle version 4.3 or higher
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
@@ -120,23 +137,6 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-
-  Scenario: Delete a custom course textregex field to 4.2
-    Given the site is running Moodle version 4.2.99 or lower
-    And I navigate to "Courses > Course custom fields" in site administration
-    When I click on "Add a new custom field" "link"
-    And I click on "Short text with regex validation" "link"
-    And I set the following fields to these values:
-      | Name               | Test field |
-      | Short name         | testfield  |
-      | Regular expression | /^[a-z]*$/ |
-    And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
-    And I click on "Delete" "link" in the "Test field" "table_row"
-    And I click on "Yes" "button" in the "Confirm" "dialogue"
-    And I wait until the page is ready
-    And I wait until "Test field" "text" does not exist
-    Then I should not see "Test field"
-    And I log out
 
   Scenario: A textregex field must validate it on course edit form from 4.3
     Given the site is running Moodle version 4.3 or higher
