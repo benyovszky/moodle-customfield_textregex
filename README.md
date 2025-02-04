@@ -8,3 +8,7 @@ A Perl-compatible regular expression is used to validate the user input. Regex c
 
 ## Entering data to a field
 Once the field is defined, users can use it like a regular text field. Enter data and store it. If the entered value does not match the regex, input will not be accepted, and the user will receive a standard notification, including the regex. Field data validation is performed on both the server and client sides.
+
+## Course fields
+This plugin cannot be used as a user profile field.
+If you want to add regex validated fields to user profiles, please use https://github.com/benyovszky/moodle-profilefield_textregex plugin instead.
