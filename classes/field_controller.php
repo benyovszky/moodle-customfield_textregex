@@ -26,6 +26,8 @@
 namespace customfield_textregex;
 
 use coding_exception;
+use core\exception\moodle_exception;
+use moodle_url;
 use MoodleQuickForm;
 
 /**
@@ -47,6 +49,7 @@ class field_controller extends \core_customfield\field_controller {
      *
      * @param MoodleQuickForm $mform
      * @throws coding_exception
+     * @throws moodle_exception
      */
     public function config_form_definition(MoodleQuickForm $mform): void {
 
@@ -57,7 +60,8 @@ class field_controller extends \core_customfield\field_controller {
             ['size' => 150]);
         $mform->setType('configdata[regex]', PARAM_TEXT);
         $mform->addRule('configdata[regex]', null, 'required', null, 'client');
-        $mform->addHelpButton('configdata[regex]', 'regex', 'customfield_textregex');
+        $stricturl = new moodle_url('/admin/search.php', ['query' => 'strictformsrequired']);
+        $mform->addHelpButton('configdata[regex]', 'regex', 'customfield_textregex', null, null, $stricturl);
 
         $mform->addElement('text', 'configdata[defaultvalue]', get_string('defaultvalue', 'core_customfield'),
             ['size' => 50]);
