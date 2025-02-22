@@ -128,7 +128,7 @@ Feature: Managers can manage course custom fields textregex
       | Short name         | testfield                 |
       | Visible to         | Everyone                  |
       | Link               | https://www.moodle.org/$$ |
-      | Regular expression | /^[a-z0-9\/\?=]*$/                |
+      | Regular expression | /^[a-z0-9\/\?=]*$/        |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
@@ -137,6 +137,9 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
+    And I am on site homepage
+    Then I should see "See more on website: course/view.php?id=35"
+
 
   Scenario: A textregex field must validate it on course edit form from 4.3
     Given the site is running Moodle version 4.3 or higher
