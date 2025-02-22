@@ -48,8 +48,7 @@ class field_controller extends \core_customfield\field_controller {
      * Add fields for editing a text field.
      *
      * @param MoodleQuickForm $mform
-     * @throws coding_exception
-     * @throws moodle_exception
+     * @throws coding_exception|moodle_exception
      */
     public function config_form_definition(MoodleQuickForm $mform): void {
 
