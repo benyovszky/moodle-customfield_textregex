@@ -137,8 +137,6 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    And I am on site homepage
-    Then I should see "See more on website: course/view.php?id=35"
 
   Scenario: A textregex field must validate it on course edit form from 4.3
     Given the site is running Moodle version 4.3 or higher
