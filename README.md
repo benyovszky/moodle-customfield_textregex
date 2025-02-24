@@ -11,4 +11,4 @@ Once the field is defined, users can use it like a regular text field. Enter dat
 
 ## Course fields
 This plugin cannot be used as a user profile field.
-If you want to add regex validated fields to user profiles, please use https://github.com/benyovszky/moodle-profilefield_textregex plugin instead.
+If you want to add regex validated fields to user profiles, please use https://moodle.org/plugins/profilefield_textregex plugin instead.
