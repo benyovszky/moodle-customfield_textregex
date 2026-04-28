@@ -1,4 +1,4 @@
-@core_customfield @customfield_textregex @javascript
+@customfield @customfield_textregex @javascript
 Feature: Managers can manage course custom fields textregex
   In order to have additional data on the course
   As a manager
@@ -320,7 +320,7 @@ Feature: Managers can manage course custom fields textregex
 
   Scenario: A textregex field must validate it on course edit form from 4.3 to 5.1
     Given the site is running Moodle version 4.3 or higher
-	And the site is running Moodle version 5.1.99 or lower
+    And the site is running Moodle version 5.1.99 or lower
     And the following "users" exist:
       | username | firstname | lastname  | email                |
       | teacher1 | Teacher   | Example 1 | teacher1@example.com |
@@ -439,7 +439,7 @@ Feature: Managers can manage course custom fields textregex
 
   Scenario: A textregex field with a default value must be shown on listing but allow empty values that will not be shown from 4.3 to 5.1
     Given the site is running Moodle version 4.3 or higher
-	And the site is running Moodle version 5.1.99 or lower
+    And the site is running Moodle version 5.1.99 or lower
     And the following "users" exist:
       | username | firstname | lastname  | email                |
       | teacher1 | Teacher   | Example 1 | teacher1@example.com |
