@@ -74,25 +74,25 @@ final class plugin_test extends advanced_testcase {
             'shortname' => 'myfield1',
             'type' => 'textregex',
             'configdata' => ['displaysize' => 50, 'regex' => '/^[a-z]+$/'],
-            'description' => null
+            'description' => null,
         ]);
         $this->cfields[2] = $this->get_generator()->create_field([
             'categoryid' => $this->cfcat->get('id'),
             'shortname' => 'myfield2',
             'type' => 'textregex',
-            'configdata' => ['required' => 1, 'displaysize' => 50, 'regex' => '/^[a-z]+$/']
+            'configdata' => ['required' => 1, 'displaysize' => 50, 'regex' => '/^[a-z]+$/'],
         ]);
         $this->cfields[3] = $this->get_generator()->create_field([
             'categoryid' => $this->cfcat->get('id'),
             'shortname' => 'myfield3',
             'type' => 'textregex',
-            'configdata' => ['defaultvalue' => 'defvalue', 'displaysize' => 50, 'regex' => '/^[a-z]+$/']
+            'configdata' => ['defaultvalue' => 'defvalue', 'displaysize' => 50, 'regex' => '/^[a-z]+$/'],
         ]);
         $this->cfields[4] = $this->get_generator()->create_field([
             'categoryid' => $this->cfcat->get('id'),
             'shortname' => 'myfield4',
             'type' => 'text',
-            'configdata' => ['link' => 'https://twitter.com/$$', 'displaysize' => 50, 'regex' => '/^[a-z]+$/']
+            'configdata' => ['link' => 'https://twitter.com/$$', 'displaysize' => 50, 'regex' => '/^[a-z]+$/'],
         ]);
 
         $this->courses[1] = $this->getDataGenerator()->create_course();
