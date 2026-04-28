@@ -55,15 +55,23 @@ class field_controller extends \core_customfield\field_controller {
         $mform->addElement('header', 'header_specificsettings', get_string('specificsettings', 'customfield_textregex'));
         $mform->setExpanded('header_specificsettings');
 
-        $mform->addElement('text', 'configdata[regex]', get_string('regex', 'customfield_textregex'),
-            ['size' => 150]);
+        $mform->addElement(
+            'text',
+            'configdata[regex]',
+            get_string('regex', 'customfield_textregex'),
+            ['size' => 150]
+        );
         $mform->setType('configdata[regex]', PARAM_TEXT);
         $mform->addRule('configdata[regex]', null, 'required', null, 'client');
         $stricturl = new moodle_url('/admin/search.php', ['query' => 'strictformsrequired']);
         $mform->addHelpButton('configdata[regex]', 'regex', 'customfield_textregex', null, null, $stricturl);
 
-        $mform->addElement('text', 'configdata[defaultvalue]', get_string('defaultvalue', 'core_customfield'),
-            ['size' => 50]);
+        $mform->addElement(
+            'text',
+            'configdata[defaultvalue]',
+            get_string('defaultvalue', 'core_customfield'),
+            ['size' => 50]
+        );
         $mform->setType('configdata[defaultvalue]', PARAM_TEXT);
 
         $mform->addElement('text', 'configdata[displaysize]', get_string('displaysize', 'customfield_textregex'), ['size' => 6]);
@@ -83,8 +91,12 @@ class field_controller extends \core_customfield\field_controller {
             '_self'  => get_string('sameframe', 'customfield_textregex'),
             '_top'   => get_string('samewindow', 'customfield_textregex'),
         ];
-        $mform->addElement('select', 'configdata[linktarget]', get_string('linktarget', 'customfield_textregex'),
-            $linkstargetoptions);
+        $mform->addElement(
+            'select',
+            'configdata[linktarget]',
+            get_string('linktarget', 'customfield_textregex'),
+            $linkstargetoptions
+        );
 
         $mform->disabledIf('configdata[linktarget]', 'configdata[link]', 'eq', '');
     }
@@ -154,8 +166,11 @@ class field_controller extends \core_customfield\field_controller {
         foreach ($values as $value) {
             $ret[$value] = format_string($value);
         }
-        $ret[BLOCK_MYOVERVIEW_CUSTOMFIELD_EMPTY] = get_string('nocustomvalue', 'block_myoverview',
-            $this->get_formatted_name());
+        $ret[BLOCK_MYOVERVIEW_CUSTOMFIELD_EMPTY] = get_string(
+            'nocustomvalue',
+            'block_myoverview',
+            $this->get_formatted_name()
+        );
         return $ret;
     }
 }
