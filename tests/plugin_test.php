@@ -46,7 +46,6 @@ use moodle_exception;
  * @copyright 2024 onwards Bence Molnar
  */
 final class plugin_test extends advanced_testcase {
-
     /** @var stdClass[]  */
     private array $courses = [];
 
@@ -70,27 +69,46 @@ final class plugin_test extends advanced_testcase {
 
         $this->cfcat = $this->get_generator()->create_category();
 
-        $this->cfields[1] = $this->get_generator()->create_field(
-            ['categoryid' => $this->cfcat->get('id'), 'shortname' => 'myfield1', 'type' => 'textregex',
-                'configdata' => ['displaysize' => 50, 'regex' => '/^[a-z]+$/'], 'description' => null]);
-        $this->cfields[2] = $this->get_generator()->create_field(
-            ['categoryid' => $this->cfcat->get('id'), 'shortname' => 'myfield2', 'type' => 'textregex',
-                'configdata' => ['required' => 1, 'displaysize' => 50, 'regex' => '/^[a-z]+$/']]);
-        $this->cfields[3] = $this->get_generator()->create_field(
-            ['categoryid' => $this->cfcat->get('id'), 'shortname' => 'myfield3', 'type' => 'textregex',
-                'configdata' => ['defaultvalue' => 'defvalue', 'displaysize' => 50, 'regex' => '/^[a-z]+$/']]);
-        $this->cfields[4] = $this->get_generator()->create_field(
-            ['categoryid' => $this->cfcat->get('id'), 'shortname' => 'myfield4', 'type' => 'text',
-                'configdata' => ['link' => 'https://twitter.com/$$', 'displaysize' => 50, 'regex' => '/^[a-z]+$/']]);
+        $this->cfields[1] = $this->get_generator()->create_field([
+            'categoryid' => $this->cfcat->get('id'),
+            'shortname' => 'myfield1',
+            'type' => 'textregex',
+            'configdata' => ['displaysize' => 50, 'regex' => '/^[a-z]+$/'],
+            'description' => null
+        ]);
+        $this->cfields[2] = $this->get_generator()->create_field([
+            'categoryid' => $this->cfcat->get('id'),
+            'shortname' => 'myfield2',
+            'type' => 'textregex',
+            'configdata' => ['required' => 1, 'displaysize' => 50, 'regex' => '/^[a-z]+$/']
+        ]);
+        $this->cfields[3] = $this->get_generator()->create_field([
+            'categoryid' => $this->cfcat->get('id'),
+            'shortname' => 'myfield3',
+            'type' => 'textregex',
+            'configdata' => ['defaultvalue' => 'defvalue', 'displaysize' => 50, 'regex' => '/^[a-z]+$/']
+        ]);
+        $this->cfields[4] = $this->get_generator()->create_field([
+            'categoryid' => $this->cfcat->get('id'),
+            'shortname' => 'myfield4',
+            'type' => 'text',
+            'configdata' => ['link' => 'https://twitter.com/$$', 'displaysize' => 50, 'regex' => '/^[a-z]+$/']
+        ]);
 
         $this->courses[1] = $this->getDataGenerator()->create_course();
         $this->courses[2] = $this->getDataGenerator()->create_course();
         $this->courses[3] = $this->getDataGenerator()->create_course();
 
-        $this->cfdata[1] = $this->get_generator()->add_instance_data($this->cfields[1], $this->courses[1]->id,
-            'valuea');
-        $this->cfdata[2] = $this->get_generator()->add_instance_data($this->cfields[1], $this->courses[2]->id,
-            'valueb');
+        $this->cfdata[1] = $this->get_generator()->add_instance_data(
+            $this->cfields[1],
+            $this->courses[1]->id,
+            'valuea'
+        );
+        $this->cfdata[2] = $this->get_generator()->add_instance_data(
+            $this->cfields[1],
+            $this->courses[2]->id,
+            'valueb'
+        );
 
         $this->setUser($this->getDataGenerator()->create_user());
     }
@@ -136,8 +154,16 @@ final class plugin_test extends advanced_testcase {
         $submitdata['configdata'] = $this->cfields[1]->get('configdata');
 
         $submitdata = field_config_form::mock_ajax_submit($submitdata);
-        $form = new field_config_form(null, null, 'post', '', null, true,
-            $submitdata, true);
+        $form = new field_config_form(
+            null,
+            null,
+            'post',
+            '',
+            null,
+            true,
+            $submitdata,
+            true
+        );
         $form->set_data_for_dynamic_submission();
         $this->assertTrue($form->is_validated());
         $form->process_dynamic_submission();
@@ -158,22 +184,28 @@ final class plugin_test extends advanced_testcase {
         // First try to submit without required field.
         $submitdata = (array)$this->courses[1];
         core_customfield_test_instance_form::mock_submit($submitdata);
-        $form = new core_customfield_test_instance_form('POST',
-            ['handler' => $handler, 'instance' => $this->courses[1]]);
+        $form = new core_customfield_test_instance_form(
+            'POST',
+            ['handler' => $handler, 'instance' => $this->courses[1]]
+        );
         $this->assertFalse($form->is_validated());
 
         // Now with required but invalid field.
         $submitdata['customfield_myfield2'] = '123456';
         core_customfield_test_instance_form::mock_submit($submitdata);
-        $form = new core_customfield_test_instance_form('POST',
-            ['handler' => $handler, 'instance' => $this->courses[1]]);
+        $form = new core_customfield_test_instance_form(
+            'POST',
+            ['handler' => $handler, 'instance' => $this->courses[1]]
+        );
         $this->assertFalse($form->is_validated());
 
         // Now with required field.
         $submitdata['customfield_myfield2'] = 'sometext';
         core_customfield_test_instance_form::mock_submit($submitdata);
-        $form = new core_customfield_test_instance_form('POST',
-            ['handler' => $handler, 'instance' => $this->courses[1]]);
+        $form = new core_customfield_test_instance_form(
+            'POST',
+            ['handler' => $handler, 'instance' => $this->courses[1]]
+        );
         $this->assertTrue($form->is_validated());
 
         $data = $form->get_data();
