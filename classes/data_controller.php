@@ -38,7 +38,6 @@ use html_writer;
  * @copyright 2024 onwards Bence Molnar
  */
 class data_controller extends \core_customfield\data_controller {
-
     /**
      * Return the name of the field where the information is stored
      * @return string
