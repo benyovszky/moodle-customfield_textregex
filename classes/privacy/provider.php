@@ -38,8 +38,7 @@ use stdClass;
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @copyright 2024 onwards Bence Molnar
  */
-class provider implements null_provider, customfield_provider {
-
+class provider implements customfield_provider, null_provider {
     /**
      * Get the language string identifier with the component's language
      * file to explain why this plugin stores no data.
