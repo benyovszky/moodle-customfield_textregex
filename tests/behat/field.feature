@@ -36,8 +36,48 @@ Feature: Managers can manage course custom fields textregex
     Then I should see "Test field"
     And I log out
 
-  Scenario: Edit a custom course textregex field from 4.3
+  Scenario: Edit a custom course textregex field from 5.2
+    Given the site is running Moodle version 5.2 or higher
+    And I navigate to "Courses > Default settings > Course custom fields" in site administration
+    When I click on "Add a new custom field" "link"
+    And I click on "Short text with regex validation" "link"
+    And I set the following fields to these values:
+      | Name               | Test field |
+      | Short name         | testfield  |
+      | Regular expression | /^[a-z]*$/ |
+    And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
+    And I choose the "Edit" item in the "Actions" action menu of the "Test field" "table_row"
+    And I set the following fields to these values:
+      | Name | Edited field |
+    And I click on "Save changes" "button" in the "Updating Test field" "dialogue"
+    Then I should see "Edited field"
+    And I navigate to "Reports > Logs" in site administration
+    And I press "Get these logs"
+    And I log out
+
+  Scenario: Edit a custom course textregex field from 4.5 to 5.1
+    Given the site is running Moodle version 4.5 or higher
+    And the site is running Moodle version 5.1.99 or lower
+    And I navigate to "Courses > Default settings > Course custom fields" in site administration
+    When I click on "Add a new custom field" "link"
+    And I click on "Short text with regex validation" "link"
+    And I set the following fields to these values:
+      | Name               | Test field |
+      | Short name         | testfield  |
+      | Regular expression | /^[a-z]*$/ |
+    And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
+    And I press "Edit custom field: Test field"
+    And I set the following fields to these values:
+      | Name | Edited field |
+    And I click on "Save changes" "button" in the "Updating Test field" "dialogue"
+    Then I should see "Edited field"
+    And I navigate to "Reports > Logs" in site administration
+    And I press "Get these logs"
+    And I log out
+
+  Scenario: Edit a custom course textregex field from 4.3 to 4.4
     Given the site is running Moodle version 4.3 or higher
+    And the site is running Moodle version 4.4.99 or lower
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     When I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
@@ -74,8 +114,44 @@ Feature: Managers can manage course custom fields textregex
     And I press "Get these logs"
     And I log out
 
-  Scenario: Delete a custom course textregex field from 4.3
+  Scenario: Delete a custom course textregex field from 5.2
+    Given the site is running Moodle version 5.2 or higher
+    And I navigate to "Courses > Default settings > Course custom fields" in site administration
+    When I click on "Add a new custom field" "link"
+    And I click on "Short text with regex validation" "link"
+    And I set the following fields to these values:
+      | Name               | Test field |
+      | Short name         | testfield  |
+      | Regular expression | /^[a-z]*$/ |
+    And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
+    And I choose the "Delete" item in the "Actions" action menu of the "Test field" "table_row"
+    And I click on "Yes" "button" in the "Confirm" "dialogue"
+    And I wait until the page is ready
+    And I wait until "Test field" "text" does not exist
+    Then I should not see "Test field"
+    And I log out
+
+  Scenario: Delete a custom course textregex field from 4.5 to 5.1
+    Given the site is running Moodle version 4.5 or higher
+    And the site is running Moodle version 5.1.99 or lower
+    And I navigate to "Courses > Default settings > Course custom fields" in site administration
+    When I click on "Add a new custom field" "link"
+    And I click on "Short text with regex validation" "link"
+    And I set the following fields to these values:
+      | Name               | Test field |
+      | Short name         | testfield  |
+      | Regular expression | /^[a-z]*$/ |
+    And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
+    And I press "Delete custom field: Test field"
+    And I click on "Yes" "button" in the "Confirm" "dialogue"
+    And I wait until the page is ready
+    And I wait until "Test field" "text" does not exist
+    Then I should not see "Test field"
+    And I log out
+
+  Scenario: Delete a custom course textregex field from 4.3 to 4.4
     Given the site is running Moodle version 4.3 or higher
+    And the site is running Moodle version 4.4.99 or lower
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     When I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
