@@ -226,9 +226,9 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    And I am on site homepage
-    And I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
-    And I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
+    When I am on site homepage
+    Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
+    Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
   Scenario: A text field with a link setting must show link on course listing form from 4.5 to 5.1
     Given the site is running Moodle version 4.5 or higher
@@ -259,9 +259,9 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    And I am on site homepage
-    And I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
-    And I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
+    When I am on site homepage
+    Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
+    Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
   Scenario: A text field with a link setting must show link on course listing form from 4.3
     Given the site is running Moodle version 4.3 or higher
@@ -292,9 +292,9 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    And I am on site homepage
-    And I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
-    And I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
+    When I am on site homepage
+    Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
+    Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
   Scenario: A textregex field must validate it on course edit form from 5.2
     Given the site is running Moodle version 5.2 or higher
