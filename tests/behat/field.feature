@@ -259,7 +259,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-	And I am on the "My courses" page
+    And I am on the "My courses" page
     Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
@@ -292,7 +292,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-	And I am on the "My courses" page
+    And I am on the "My courses" page
     Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
