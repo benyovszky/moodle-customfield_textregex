@@ -209,8 +209,6 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    And the following config values are set as admin:
-      | defaulthomepage | 0 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
@@ -229,8 +227,8 @@ Feature: Managers can manage course custom fields textregex
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
     And I am on site homepage
-    Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
-    Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
+    And I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
+    And I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
   Scenario: A text field with a link setting must show link on course listing form from 4.5 to 5.1
     Given the site is running Moodle version 4.5 or higher
@@ -262,8 +260,8 @@ Feature: Managers can manage course custom fields textregex
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
     And I am on site homepage
-    Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
-    Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
+    And I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
+    And I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
   Scenario: A text field with a link setting must show link on course listing form from 4.3
     Given the site is running Moodle version 4.3 or higher
@@ -295,8 +293,8 @@ Feature: Managers can manage course custom fields textregex
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
     And I am on site homepage
-    Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
-    Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
+    And I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
+    And I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
   Scenario: A textregex field must validate it on course edit form from 5.2
     Given the site is running Moodle version 5.2 or higher
@@ -423,8 +421,6 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    And the following config values are set as admin:
-      | defaulthomepage | 0 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
@@ -436,7 +432,7 @@ Feature: Managers can manage course custom fields textregex
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
-    And I am on site homepage
+    When I am on site homepage
     Then I should see "Test field: testdefault"
     When I am on "Course 1" course homepage
     And I navigate to "Settings" in current page administration
