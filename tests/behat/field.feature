@@ -209,7 +209,7 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    I set the following administration settings values:
+    And I set the following administration settings values:
       | Site home items when logged in | List of courses |
       | Start page for users           | Home            |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
@@ -424,7 +424,7 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    I set the following administration settings values:
+    And I set the following administration settings values:
       | Site home items when logged in | List of courses |
       | Start page for users           | Home            |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
