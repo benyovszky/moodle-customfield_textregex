@@ -226,7 +226,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    And I am on site homepage
+    And I am on the "My courses" page
     Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
@@ -259,6 +259,9 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
+	And I am on the "My courses" page
+    Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
+    Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
   Scenario: A text field with a link setting must show link on course listing form from 4.3
     Given the site is running Moodle version 4.3 or higher
@@ -289,6 +292,9 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
+	And I am on the "My courses" page
+    Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
+    Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
   Scenario: A textregex field must validate it on course edit form from 5.2
     Given the site is running Moodle version 5.2 or higher
@@ -426,7 +432,7 @@ Feature: Managers can manage course custom fields textregex
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
-    When I am on site homepage
+    When I am on the "My courses" page
     Then I should see "Test field: testdefault"
     When I am on "Course 1" course homepage
     And I navigate to "Settings" in current page administration
@@ -434,7 +440,7 @@ Feature: Managers can manage course custom fields textregex
     When I set the following fields to these values:
       | Test field |  |
     And I press "Save and display"
-    And I am on site homepage
+    And I am on the "My courses" page
     And I should not see "Test field"
 
   Scenario: A textregex field with a default value must be shown on listing but allow empty values that will not be shown from 4.3 to 5.1
