@@ -209,9 +209,8 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    And I set the following administration settings values:
-      | Site home items when logged in | List of courses |
-      | Start page for users           | Home            |
+    And the following config values are set as admin:
+      | defaulthomepage | 0 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
@@ -424,9 +423,8 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    And I set the following administration settings values:
-      | Site home items when logged in | List of courses |
-      | Start page for users           | Home            |
+    And the following config values are set as admin:
+      | defaulthomepage | 0 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
