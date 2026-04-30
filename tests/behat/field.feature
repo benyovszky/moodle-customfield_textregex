@@ -209,6 +209,9 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
+    I set the following administration settings values:
+      | Site home items when logged in | List of courses |
+      | Start page for users           | Home            |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
@@ -226,7 +229,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    And I am on the "My courses" page
+    And I am on site homepage
     Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
@@ -259,7 +262,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    And I am on the "My courses" page
+    And I am on site homepage
     Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
@@ -292,7 +295,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    And I am on the "My courses" page
+    And I am on site homepage
     Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
@@ -421,6 +424,9 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
+    I set the following administration settings values:
+      | Site home items when logged in | List of courses |
+      | Start page for users           | Home            |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
@@ -432,7 +438,7 @@ Feature: Managers can manage course custom fields textregex
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
-    When I am on the "My courses" page
+    And I am on site homepage
     Then I should see "Test field: testdefault"
     When I am on "Course 1" course homepage
     And I navigate to "Settings" in current page administration
@@ -440,7 +446,7 @@ Feature: Managers can manage course custom fields textregex
     When I set the following fields to these values:
       | Test field |  |
     And I press "Save and display"
-    And I am on the "My courses" page
+    And I am on site homepage
     And I should not see "Test field"
 
   Scenario: A textregex field with a default value must be shown on listing but allow empty values that will not be shown from 4.3 to 5.1
