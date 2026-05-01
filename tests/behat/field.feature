@@ -227,7 +227,7 @@ Feature: Managers can manage course custom fields textregex
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
     When I am on site homepage
-	And I wait until the page is ready
+    And I wait until the page is ready
     Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
@@ -261,7 +261,7 @@ Feature: Managers can manage course custom fields textregex
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
     When I am on site homepage
-	And I wait until the page is ready
+    And I wait until the page is ready
     Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
@@ -295,7 +295,7 @@ Feature: Managers can manage course custom fields textregex
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
     When I am on site homepage
-	And I wait until the page is ready
+    And I wait until the page is ready
     Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
@@ -425,21 +425,21 @@ Feature: Managers can manage course custom fields textregex
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
-	And I wait until the page is read
+    And I wait until the page is read
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
-	And I wait until the page is ready
+    And I wait until the page is ready
     And I set the following fields to these values:
       | Name               | Test field  |
       | Short name         | testfield   |
       | Regular expression | /^[a-z]*$/  |
       | Default value      | testdefault |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
-	And I wait until the page is ready
+    And I wait until the page is ready
     And I log out
     Then I log in as "teacher1"
     When I am on site homepage
-	And I wait until the page is ready
+    And I wait until the page is ready
     Then I should see "Test field: testdefault"
     When I am on "Course 1" course homepage
     And I navigate to "Settings" in current page administration
@@ -448,7 +448,7 @@ Feature: Managers can manage course custom fields textregex
       | Test field |  |
     And I press "Save and display"
     And I am on site homepage
-	And I wait until the page is ready
+    And I wait until the page is ready
     And I should not see "Test field"
 
   Scenario: A textregex field with a default value must be shown on listing but allow empty values that will not be shown from 4.3 to 5.1
