@@ -422,8 +422,10 @@ Feature: Managers can manage course custom fields textregex
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
     And  the following config values are set as admin:
-      | enabledashboard | 0 |
-      | defaulthomepage | 1 |
+      | enabledashboard  | 0 |
+      | defaulthomepage  | 0 |
+      | frontpage        | 4 |
+      | frontpagelogedin | 4 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
