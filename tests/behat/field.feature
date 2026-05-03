@@ -423,6 +423,7 @@ Feature: Managers can manage course custom fields textregex
       | teacher1 | C1     | editingteacher |
     And  the following config values are set as admin:
       | enabledashboard  | 0 |
+      | enablemyhome     | 1 |
       | defaulthomepage  | 0 |
       | frontpage        | 4 |
       | frontpagelogedin | 4 |
