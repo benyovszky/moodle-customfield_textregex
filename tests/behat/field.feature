@@ -5,7 +5,9 @@ Feature: Managers can manage course custom fields textregex
   I need to create, edit, remove and sort custom fields
 
   Background:
-    Given the following "custom field categories" exist:
+    Given the following config values are set as admin:
+      | enablemyhome | 1 |
+    And the following "custom field categories" exist:
       | name              | component   | area   | itemid |
       | Category for test | core_course | course | 0      |
     And I log in as "admin"
@@ -209,12 +211,12 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    And  the following config values are set as admin:
-      | enabledashboard  | 0 |
-      | enablemyhome     | 1 |
-      | defaulthomepage  | 0 |
-      | frontpage        | 4 |
-      | frontpagelogedin | 4 |
+    #And the following config values are set as admin:
+    #  | enabledashboard  | 0 |
+    #  | enablemyhome     | 1 |
+    #  | defaulthomepage  | 0 |
+    #  | frontpage        | 4 |
+    #  | frontpagelogedin | 4 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
@@ -232,7 +234,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    When I am on site homepage
+    And I am on site homepage
     Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
@@ -248,12 +250,12 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    And  the following config values are set as admin:
-      | enabledashboard  | 0 |
-      | enablemyhome     | 1 |
-      | defaulthomepage  | 0 |
-      | frontpage        | 4 |
-      | frontpagelogedin | 4 |
+    #And the following config values are set as admin:
+    #  | enabledashboard  | 0 |
+    #  | enablemyhome     | 1 |
+    #  | defaulthomepage  | 0 |
+    #  | frontpage        | 4 |
+    #  | frontpagelogedin | 4 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
@@ -271,7 +273,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    When I am on site homepage
+    And I am on site homepage
     Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
@@ -304,7 +306,7 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    #When I am on site homepage
+    #And I am on site homepage
     #Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
     #Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
@@ -433,12 +435,12 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    And  the following config values are set as admin:
-      | enabledashboard  | 0 |
-      | enablemyhome     | 1 |
-      | defaulthomepage  | 0 |
-      | frontpage        | 4 |
-      | frontpagelogedin | 4 |
+    #And the following config values are set as admin:
+    #  | enabledashboard  | 0 |
+    #  | enablemyhome     | 1 |
+    #  | defaulthomepage  | 0 |
+    #  | frontpage        | 4 |
+    #  | frontpagelogedin | 4 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
