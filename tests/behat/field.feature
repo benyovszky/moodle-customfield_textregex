@@ -218,6 +218,8 @@ Feature: Managers can manage course custom fields textregex
     #  | frontpage        | 4 |
     #  | frontpagelogedin | 4 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
+    And I press "Add a new category"
+    And I wait until the page is ready
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
@@ -257,6 +259,8 @@ Feature: Managers can manage course custom fields textregex
     #  | frontpage        | 4 |
     #  | frontpagelogedin | 4 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
+    And I press "Add a new category"
+    And I wait until the page is ready
     And I click on "Add a new custom field" "link"
     And I click on "Short text with regex validation" "link"
     And I set the following fields to these values:
