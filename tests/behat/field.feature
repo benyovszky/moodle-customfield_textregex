@@ -211,12 +211,6 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    #And the following config values are set as admin:
-    #  | enabledashboard  | 0 |
-    #  | enablemyhome     | 1 |
-    #  | defaulthomepage  | 0 |
-    #  | frontpage        | 4 |
-    #  | frontpagelogedin | 4 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I press "Add a new category"
     And I wait until the page is ready
@@ -227,7 +221,7 @@ Feature: Managers can manage course custom fields textregex
       | Short name         | testfield                 |
       | Visible to         | Everyone                  |
       | Link               | https://www.moodle.org/$$ |
-      | Regular expression | /^[a-z0-9\/\?=]*$/        |
+      | Regular expression | /^[a-z0-9\/\?\.=]*$/        |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
@@ -252,12 +246,6 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    #And the following config values are set as admin:
-    #  | enabledashboard  | 0 |
-    #  | enablemyhome     | 1 |
-    #  | defaulthomepage  | 0 |
-    #  | frontpage        | 4 |
-    #  | frontpagelogedin | 4 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I press "Add a new category"
     And I wait until the page is ready
@@ -268,7 +256,7 @@ Feature: Managers can manage course custom fields textregex
       | Short name         | testfield                 |
       | Visible to         | Everyone                  |
       | Link               | https://www.moodle.org/$$ |
-      | Regular expression | /^[a-z0-9\/\?=]*$/        |
+      | Regular expression | /^[a-z0-9\/\?\.=]*$/        |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
@@ -301,7 +289,7 @@ Feature: Managers can manage course custom fields textregex
       | Short name         | testfield                 |
       | Visible to         | Everyone                  |
       | Link               | https://www.moodle.org/$$ |
-      | Regular expression | /^[a-z0-9\/\?=]*$/        |
+      | Regular expression | /^[a-z0-9\/\?\.=]*$/        |
     And I click on "Save changes" "button" in the "Adding a new Short text with regex validation" "dialogue"
     And I log out
     Then I log in as "teacher1"
@@ -310,9 +298,9 @@ Feature: Managers can manage course custom fields textregex
     And I set the following fields to these values:
       | See more on website | course/view.php?id=35 |
     And I press "Save and display"
-    #And I am on site homepage
-    #Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
-    #Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
+    And I am on site homepage
+    Then I should see "course/view.php?id=35" in the ".customfields-container .customfieldvalue a" "css_element"
+    Then I should see "See more on website" in the ".customfields-container .customfieldname" "css_element"
 
   Scenario: A textregex field must validate it on course edit form from 5.2
     Given the site is running Moodle version 5.2 or higher
@@ -439,12 +427,6 @@ Feature: Managers can manage course custom fields textregex
     And the following "course enrolments" exist:
       | user     | course | role           |
       | teacher1 | C1     | editingteacher |
-    #And the following config values are set as admin:
-    #  | enabledashboard  | 0 |
-    #  | enablemyhome     | 1 |
-    #  | defaulthomepage  | 0 |
-    #  | frontpage        | 4 |
-    #  | frontpagelogedin | 4 |
     And I navigate to "Courses > Default settings > Course custom fields" in site administration
     And I click on "Add field" "link"
     And I click on "Short text with regex validation" "link"
