@@ -29,5 +29,5 @@ $plugin->component = 'customfield_textregex';
 $plugin->version   = 2026100500;
 $plugin->requires  = 2021051718;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.1.2';
+$plugin->release = '1.1.3';
 $plugin->supported = [311, 503];
